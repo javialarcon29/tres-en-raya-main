@@ -1,0 +1,33 @@
+---
+import Board from './Board.astro';
+import GameInfo from './GameInfo.astro';
+---
+
+<div id="game">
+	<Board />
+	<GameInfo />
+</div>
+
+<style>
+	#game {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+</style>
+
+<script>
+	import { startGame, handleClick } from '../scripts/gameLogic';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		const restartButton = document.getElementById('restartButton');
+		const cellElements = document.querySelectorAll('[data-cell]');
+
+		startGame();
+
+		restartButton.addEventListener('click', startGame);
+		cellElements.forEach(cell => {
+			cell.addEventListener('click', handleClick);
+		});
+	});
+</script>
