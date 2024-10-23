@@ -12,5 +12,8 @@
   },
   "dependencies": {
     "astro": "^2.5.0"
+  },
+  "devDependencies": {
+    "esbuild-wasm": "^0.24.0"
   }
 }
